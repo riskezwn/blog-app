@@ -32,3 +32,19 @@ function deleteSession($session)
         unset($_SESSION[$session]);
     }
 }
+
+
+// ********************* BASE DE DATOS ********************* //
+
+// Devuelve las categorias de la base de datos
+function getCategories($con) {
+    $sql = "SELECT * FROM categories;";
+    $stmt = mysqli_query($con, $sql);
+
+    $result = false;
+    if ($stmt && mysqli_num_rows($stmt) > 1) {
+        $result = $stmt;
+    }
+    return $result;
+}
+
