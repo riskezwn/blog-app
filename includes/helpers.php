@@ -25,6 +25,14 @@ function checkLoginError($errors)
     }
     return $result;
 }
+function checkCreateCategoryError($error)
+{
+    $result = '';
+    if (isset($error)) {
+        $result = "<div class='category-error'><i class='fas fa-exclamation-circle'></i>$error</div>";
+    }
+    return $result;
+}
 
 // Elimina las variables de sesión
 function deleteSession($session)

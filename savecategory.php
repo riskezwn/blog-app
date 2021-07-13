@@ -10,7 +10,7 @@ if (isset($_POST)) {
 
     // Validar los datos
     if (!is_string($name) || !preg_match('/^[A-Za-zÀ-ÿ0-9 ]+$/', $name)) {
-        $_SESSION['category_error'] = 'El nombre no es válido';
+        $_SESSION['category_error'] = 'Ya existe una categoría con ese nombre o has especificado un nombre no válido';
         header('Location: create_category.php');
     } else {
         
