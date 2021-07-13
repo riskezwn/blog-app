@@ -20,7 +20,7 @@ require_once('helpers.php');
   </header>
   <nav>
     <ul class="ul-nav">
-      <li class="li-nav"><a href="#">Inicio</a></li>
+      <li class="li-nav"><a href="index.php">Inicio</a></li>
 
       <?php if ($categories = getCategories($con)) :
         while ($category = mysqli_fetch_assoc($categories)) : ?>
