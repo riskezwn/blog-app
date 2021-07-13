@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto+Slab&display=swap");
+
+:root {
+  --f-poppins: "Poppins", sans-serif;
+  --f-robotoslab: "Roboto Slab", serif;
+  --c-pink: #ef476f;
+  --c-yellow: #ffc43d;
+  --c-greenaqua: #06d6a0;
+  --c-darkgray: rgb(34, 34, 34);
+  --c-gray: rgb(87, 87, 87);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--f-poppins);
+  background-color: var(--c-yellow);
+  height: 100%;
+  min-height: 100%;
+}
+header {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+header h1 {
+  margin: 0 auto;
+  display: inline;
+  text-align: center;
+  padding: 0 1em;
+  border: 8px solid #000;
+}
+
+nav .ul-nav {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav .li-nav {
+  margin-right: 1.5em;
+}
+nav .li-nav a {
+  color: #000;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+nav .li-nav a:after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+nav .li-nav a:hover:after {
+  width: 100%;
+}
+
+main {
+  position: relative;
+  background-color: #fff;
+  color: var(--c-darkgray);
+  display: grid;
+  margin: 1em 2em;
+  padding: 1.8em 0 1.8em 1.8em;
+  border-radius: 15px;
+  grid-template-columns: 75% 25%;
+  box-shadow: 2px 2px 15px 3px #22222238;
+}
+main h3 {
+  font-size: 1.7em;
+}
+
+/* SECTION */
+section {
+  border-right: 1px solid var(--c-darkgray);
+}
+section .main-hr {
+  background: var(--c-pink);
+  border: none;
+  width: 50%;
+  height: 6px;
+}
+section article {
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 1em;
+  margin-right: 5em;
+  margin-top: 0.5em;
+}
+section article:hover {
+  background-color: #f1f1f1;
+}
+section article .news-category {
+  font-size: 0.7em;
+  color: var(--c-greenaqua);
+  font-family: var(--f-robotoslab);
+}
+section article .news-body {
+  font-family: var(--f-robotoslab);
+}
+
+section .btn {
+  width: fit-content;
+  display: block;
+  margin: 2em auto;
+  background-color: var(--c-greenaqua);
+  color: #f8ffe5;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+section .btn:hover {
+  background-color: #11b8a5;
+}
+section .btn:hover i {
+  margin-left: 10px;
+}
+
+/* ASIDE */
+aside {
+  padding: 0 1.6em 1.6em 1.6em;
+}
+aside .container h5 {
+  color: var(--c-gray);
+}
+aside .container form.sign-in {
+  color: #f8ffe5;
+  background-color: var(--c-pink);
+  padding: 1em;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px 3px #22222223;
+  margin: 10px 0;
+}
+aside .container form.sign-in .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+}
+aside .container form.sign-in .form-group input {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  border: none;
+  border-radius: 0 10px 10px 0;
+}
+aside .container form.sign-in .form-group input::placeholder {
+  font-weight: bold;
+}
+aside .container form.sign-in .form-group i {
+  margin: 0.5em;
+  color: var(--c-gray);
+}
+aside .container .btn {
+  color: var(--c-darkgray);
+  font-size: 0.7em;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  width: 50%;
+  border: none;
+  text-align: center;
+  padding: 0.5em;
+  margin: 0.5em auto;
+  border-radius: 15px;
+}
+aside .container form.sign-up {
+  color: #f8ffe5;
+  background-color: var(--c-gray);
+  padding: 1em;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px 3px #22222223;
+  margin: 10px 0;
+}
+aside .container form.sign-up .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+}
+aside .container form.sign-up .form-group input {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  border: none;
+  border-radius: 10px;
+}
+
+aside .form-error {
+  background-color: var(--c-pink);
+
+  font-size: .7em;
+  padding: .5em;
+  border-radius: 10px;
+  margin: 5px 5px;
+
+}
+aside .form-error i {
+  margin-right: 3px;
+}
+
+aside .img {
+  margin-top: 4em;
+  width: 100%;
+}
+
+/* FOOTER */
+footer {
+  font-size: 0.8rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 1em;
+}
