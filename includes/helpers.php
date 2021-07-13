@@ -2,7 +2,8 @@
 
 // Sanear las entradas de un formulario para evitar ataques Xsiting
 function sanitize($v)
-{   $v = trim($v);
+{
+    $v = trim($v);
     $v = strip_tags($v);
     return $v;
 }
@@ -37,7 +38,8 @@ function deleteSession($session)
 // ********************* BASE DE DATOS ********************* //
 
 // Devuelve las categorias de la base de datos
-function getCategories($con) {
+function getCategories($con)
+{
     $sql = "SELECT * FROM categories;";
     $stmt = mysqli_query($con, $sql);
 
@@ -48,3 +50,19 @@ function getCategories($con) {
     return $result;
 }
 
+// Devuelve las 4 últimas entradas
+function getLastEntries($con)
+{
+    $sql = "SELECT entries.*,
+            categories.name AS category_name,
+            DATE_FORMAT(entries.entry_date, '%d-%m-%Y') AS entry_date
+            FROM entries 
+                INNER JOIN categories ON entries.category_id = categories.id 
+            ORDER BY entries.entry_date DESC LIMIT 4;";
+    $stmt = mysqli_query($con, $sql);
+    $result = false;
+    if ($stmt && mysqli_num_rows($stmt) > 1) {
+        $result = $stmt;
+    }
+    return $result;
+}
