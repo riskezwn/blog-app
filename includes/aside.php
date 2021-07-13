@@ -1,10 +1,33 @@
 <aside class="sign-in-up">
-  <div class="container">
+
+  <?php if (isset($_SESSION['userdata'])) : ?>
+    <div class="container session">
+
+    <?php
+
+    $user = $_SESSION['userdata'];
+    
+    $user_name = $user['name'];
+    $user_subname = $user['subname'];
+
+    ?>
+    <div class="name-photo">
+      <h4>¡Bienvenido <?= $user_name ?>!</h4>
+    </div>
+    <ul class="user-options">
+      <li class="option"><a href="index.php"><i class="fas fa-user-alt"></i> Mi perfil</a></li>
+      <li class="option"><a href="#"><i class="fas fa-pencil-alt"></i> Escribir entrada</a></li>
+      <li class="option"><a href="#"><i class="fas fa-pencil-ruler"></i> Crear categoría</a></li>
+      <li class="option"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+    </ul>
+  </div>
+  <?php else : ?>
+  <div class="container sign-in">
     <h5>inicia sesión</h5>
-    <form action="login.php" class="sign-in" method="POST">
+    <form action="login.php" method="POST">
       <?php
       if (isset($_SESSION['log-errors'])) echo checkLoginError($_SESSION['log-errors']);
-      
+
       ?>
       <label for="email-log">Email</label>
       <div class="form-group">
@@ -64,5 +87,6 @@
     deleteSession('signup');
     ?>
   </div>
+  <?php endif; ?>
   <img src="assets/images/undraw_newspaper_k72w.svg" alt="newspaper" class="img" />
 </aside>
