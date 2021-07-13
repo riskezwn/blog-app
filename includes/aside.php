@@ -1,7 +1,11 @@
 <aside class="sign-in-up">
   <div class="container">
     <h5>inicia sesión</h5>
-    <form action="#" class="sign-in">
+    <form action="login.php" class="sign-in" method="POST">
+      <?php
+      if (isset($_SESSION['log-errors'])) echo checkLoginError($_SESSION['log-errors']);
+      
+      ?>
       <label for="email-log">Email</label>
       <div class="form-group">
         <i class="fas fa-user"></i>
@@ -10,7 +14,7 @@
       <label for="pass-log">Contraseña</label>
       <div class="form-group">
         <i class="fas fa-lock"></i>
-        <input type="password" name="pass-log" id="password-log" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" />
+        <input type="password" name="pass-log" id="pass-log" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" />
       </div>
       <input type="submit" class="btn" value="LOG IN" />
     </form>

@@ -16,6 +16,14 @@ function checkFormError($errors, $field)
     }
     return $result;
 }
+function checkLoginError($errors)
+{
+    $result = '';
+    if (isset($errors)) {
+        $result = "<div class='error'><i class='fas fa-exclamation-circle'></i>$errors</div>";
+    }
+    return $result;
+}
 
 // Elimina las variables de sesión
 function deleteSession($session)
