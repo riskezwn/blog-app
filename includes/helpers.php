@@ -12,7 +12,7 @@ function checkFormError($errors, $field)
 {
     $result = '';
     if (isset($errors[$field]) && !empty($field)) {
-        $result = "<div class='form-error'><i class='fas fa-exclamation-circle'></i>$errors[$field]</div>";
+        $result = "<div class='error form'><i class='fas fa-exclamation-circle'></i>$errors[$field]</div>";
     }
     return $result;
 }

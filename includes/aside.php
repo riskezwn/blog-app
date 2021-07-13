@@ -18,6 +18,12 @@
   <div class="container">
     <h5>o regístrate</h5>
     <form action="registro.php" class="sign-up" method="POST">
+      <!-- Mostrar el resultado del registro -->
+      <?php if (isset($_SESSION['signup'])) : ?>
+        <div class="success"><i class="fas fa-check-circle"></i><?= $_SESSION['signup'] ?></div>
+      <?php elseif (isset($_SESSION['errors']['signup'])) : ?>
+        <div class="error form"><i class='fas fa-exclamation-circle'></i><?= $_SESSION['errors']['signup'] ?></div>
+      <?php endif; ?>
       <label for="name">Nombre</label>
       <div class="form-group">
         <input type="text" name="name" id="name" placeholder="John" />
@@ -50,6 +56,7 @@
     </form>
     <?php
     deleteSession('errors');
+    deleteSession('signup');
     ?>
   </div>
   <img src="assets/images/undraw_newspaper_k72w.svg" alt="newspaper" class="img" />

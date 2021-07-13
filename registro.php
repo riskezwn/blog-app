@@ -45,7 +45,7 @@ if (isset($_POST)) {
         if ($stmt) {
             $_SESSION['signup'] = 'El registro se ha completado correctamente';
         } else {
-            $errors['signup'] = 'Fallo al crear el usuario: ' . mysqli_error($con);
+            $_SESSION['errors']['signup'] = 'Fallo al crear el usuario: ' . mysqli_error($con);
         }
     }
 }

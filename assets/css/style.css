@@ -195,17 +195,31 @@ aside .container form.sign-up .form-group input {
   border-radius: 10px;
 }
 
-aside .form-error {
-  background-color: var(--c-pink);
-
-  font-size: .7em;
+aside .error {
+  font-size: .8em;
   padding: .5em;
   border-radius: 10px;
   margin: 5px 5px;
 
 }
-aside .form-error i {
+aside .error i {
   margin-right: 3px;
+}
+aside .error.form {
+  background-color: #ef476f;
+}
+
+aside .success {
+  color: var(--c-darkgray);
+  background-color: #fff;
+  font-size: .8em;
+  padding: .5em;
+  border-radius: 10px;
+  margin: 5px 5px;
+}
+aside .success i {
+  color: #06d6a0;
+  margin-right: 5px;
 }
 
 aside .img {
