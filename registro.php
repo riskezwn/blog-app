@@ -34,11 +34,20 @@ if (isset($_POST)) {
     /// Comprobar si hay errores ///
     if (count($errors) > 0) {
         $_SESSION['errors'] = $errors;
+    } else {
+        // Cifrar la contraseña y guardar el registro. Para cifrar la contraseña, en vez de md5 o sha1, utilizaremos la función password_hash(contraseña, metodo, coste)
+        $secure_pass = password_hash($pass, PASSWORD_DEFAULT);
+
+        // Insertar usuario en la base de datos
+        $sql = "INSERT INTO users (name, subname, email, pass, signup_date) VALUES ('$name', '$subname', '$email', '$secure_pass', CURDATE())";
+        $stmt = mysqli_query($con, $sql);
+
+        if ($stmt) {
+            $_SESSION['signup'] = 'El registro se ha completado correctamente';
+        } else {
+            $errors['signup'] = 'Fallo al crear el usuario: ' . mysqli_error($con);
+        }
     }
-    // Cifrar la contraseña y guardar el registro
-
-    // Redirigir a index
-
 }
+// Redirigir a index
 header('Location: index.php');
-// preg_match('/^[A-Za-zÀ-ÿ]+$/');
