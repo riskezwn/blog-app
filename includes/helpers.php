@@ -54,7 +54,7 @@ function getCategories($con)
 function getLastEntries($con)
 {
     $sql = "SELECT entries.*,
-            categories.name AS category_name,
+            UPPER(categories.name) AS category_name,
             DATE_FORMAT(entries.entry_date, '%d-%m-%Y') AS entry_date
             FROM entries 
                 INNER JOIN categories ON entries.category_id = categories.id 

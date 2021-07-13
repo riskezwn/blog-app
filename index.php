@@ -6,56 +6,25 @@ require_once('includes/header.php');
   <section class="news">
     <h3>Últimas noticias</h3>
     <hr class="main-hr" />
-    <article>
-      <h4 class="news-title">Titulo</h4>
-      <p class="news-category">CATEGORIA</p>
-      <p class="news-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
-        itaque necessitatibus incidunt libero sint quae veniam impedit quasi
-        ut amet quam ullam architecto quaerat sunt nulla, dolores vel
-        reiciendis. Sequi!
-      </p>
-    </article>
-    <article>
-      <h4 class="news-title">Titulo</h4>
-      <p class="news-category">CATEGORIA</p>
-      <p class="news-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
-        itaque necessitatibus incidunt libero sint quae veniam impedit quasi
-        ut amet quam ullam architecto quaerat sunt nulla, dolores vel
-        reiciendis. Sequi!
-      </p>
-    </article>
-    <article>
-      <h4 class="news-title">Titulo</h4>
-      <p class="news-category">CATEGORIA</p>
-      <p class="news-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
-        itaque necessitatibus incidunt libero sint quae veniam impedit quasi
-        ut amet quam ullam architecto quaerat sunt nulla, dolores vel
-        reiciendis. Sequi!
-      </p>
-    </article>
-    <article>
-      <h4 class="news-title">Titulo</h4>
-      <p class="news-category">CATEGORIA</p>
-      <p class="news-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
-        itaque necessitatibus incidunt libero sint quae veniam impedit quasi
-        ut amet quam ullam architecto quaerat sunt nulla, dolores vel
-        reiciendis. Sequi!
-      </p>
-    </article>
-    <article>
-      <h4 class="news-title">Titulo</h4>
-      <p class="news-category">CATEGORIA</p>
-      <p class="news-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
-        itaque necessitatibus incidunt libero sint quae veniam impedit quasi
-        ut amet quam ullam architecto quaerat sunt nulla, dolores vel
-        reiciendis. Sequi!
-      </p>
-    </article>
+
+
+    <?php
+    if ($entries = getLastEntries($con)) :
+      while ($entry = mysqli_fetch_assoc($entries)) :
+    ?>
+        <a href="entry.php?id=<?= $entry['id'] ?>">
+          <article>
+            <h4 class="news-title"><?= $entry['title'] ?></h4>
+            <p class="news-category"><?= $entry['category_name'] ?> <span class="news-date"><?= $entry['entry_date'] ?></span></p>
+            <p class="news-body">
+              <?= $entry['description'] ?>
+            </p>
+          </article>
+        </a>
+    <?php
+      endwhile;
+    endif;
+    ?>
     <div>
       <a href="#" class="btn">Ver todas las noticias <i class="fas fa-arrow-right"></i></a>
     </div>

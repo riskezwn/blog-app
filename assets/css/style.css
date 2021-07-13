@@ -95,6 +95,10 @@ section article {
   margin-right: 5em;
   margin-top: 0.5em;
 }
+section a {
+  color: var(--c-darkgray);
+  text-decoration: none;
+}
 section article:hover {
   background-color: #f1f1f1;
 }
@@ -102,6 +106,9 @@ section article .news-category {
   font-size: 0.7em;
   color: var(--c-greenaqua);
   font-family: var(--f-robotoslab);
+}
+section article .news-date {
+  color: var(--c-gray);
 }
 section article .news-body {
   font-family: var(--f-robotoslab);
@@ -125,7 +132,7 @@ section .btn:hover {
   background-color: #11b8a5;
 }
 section .btn:hover i {
-  margin-left: 10px;
+  margin-left: 6px;
 }
 
 /* ASIDE */
@@ -235,8 +242,11 @@ aside .container.session .user {
   justify-content: space-between;
 }
 aside .container.session .user .user-image {
-  width: 25%;
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
   border-radius: 50%;
+  box-shadow: 1px 1px 7px 2px #22222223;
 }
 aside .container.session .user-options {
   padding: 0.4em;
