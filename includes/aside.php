@@ -60,6 +60,7 @@
     </form>
     <?php
     deleteSession('errors');
+    deleteSession('log-errors');
     deleteSession('signup');
     ?>
   </div>
