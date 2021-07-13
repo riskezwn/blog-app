@@ -11,8 +11,9 @@
     $user_subname = $user['subname'];
 
     ?>
-    <div class="name-photo">
+    <div class="user">
       <h4>¡Bienvenido <?= $user_name ?>!</h4>
+      <img src="assets/images/user_images/default_userimage.png" class="user-image" alt="user avatar">
     </div>
     <ul class="user-options">
       <li class="option"><a href="index.php"><i class="fas fa-user-alt"></i> Mi perfil</a></li>
