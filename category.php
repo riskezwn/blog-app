@@ -19,7 +19,9 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
   <section class="news">
     <h3><?=$category_name?></h3>
     <hr class="main-hr" />
-
+    <?php 
+    $entries = getEntries($con, null, $category_id);
+    if (mysqli_num_rows($entries) > 0) : ?>
     <div class="last-entries" id="lastEntries">
       <?php
       if ($entries = getEntries($con, 4, $category_id)) :
@@ -61,6 +63,10 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
     <div>
       <a href="#" class="btn" id="getAllEntries">Ver todas las noticias <i class="fas fa-arrow-right"></i></a>
     </div>
+    <?php else : ?>
+      <p>Nada que ver por aquí...</p>
+    
+    <?php endif; ?>
   </section>
   <?php
   require_once('includes/aside.php')

@@ -110,7 +110,7 @@ function getEntries($con, $limit = null, $category = null)
 
     $stmt = mysqli_query($con, $sql);
     $result = false;
-    if ($stmt && mysqli_num_rows($stmt) > 1) {
+    if ($stmt && mysqli_num_rows($stmt) >= 1) {
         $result = $stmt;
     }
     return $result;
