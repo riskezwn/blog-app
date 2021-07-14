@@ -25,11 +25,13 @@ function checkLoginError($errors)
     }
     return $result;
 }
-function checkCreateCategoryError($error)
+function checkCreateCategoryError($status, $msg)
 {
     $result = '';
-    if (isset($error)) {
-        $result = "<div class='category-error'><i class='fas fa-exclamation-circle'></i>$error</div>";
+    if (isset($msg) && $status == 'error') {
+        $result = "<div class='category-error'><i class='fas fa-exclamation-circle'></i>$msg</div>";
+    } elseif (isset($msg) && $status == 'success') {
+        $result = "<div class='category-success'><i class='fas fa-exclamation-circle'></i>$msg</div>";
     }
     return $result;
 }

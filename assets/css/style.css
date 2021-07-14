@@ -307,3 +307,11 @@ form.create-category .category-error {
   margin-bottom: 15px;
   color: #fff;
 }
+form.create-category .category-success {
+  background-color: var(--c-greenaqua);
+  padding: 1em;
+  border-radius: 10px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+  color: #fff;
+}

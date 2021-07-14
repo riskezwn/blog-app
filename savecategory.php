@@ -13,9 +13,18 @@ if (isset($_POST)) {
         $_SESSION['category_error'] = 'Ya existe una categoría con ese nombre o has especificado un nombre no válido';
         header('Location: create_category.php');
     } else {
+        // Guardar los datos en la base de datos
+        $sql = "INSERT INTO categories (name)
+                VALUES ('$name');";
+        $stmt = mysqli_query($con, $sql);
         
+        if ($stmt) {
+            $_SESSION['category_success'] = 'La categoría se ha creado correctamente';
+        } else {
+            $_SESSION['category_error'] = 'Ya existe una categoría con ese nombre o has especificado un nombre no válido';
+        }
     }
 }
-
 // Redirigir a index
+header('Location: create_category.php');
 
