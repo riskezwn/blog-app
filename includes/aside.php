@@ -1,6 +1,13 @@
 <aside class="sign-in-up">
 
-  <?php if (isset($_SESSION['userdata'])) : ?>
+
+  <?php
+  // image
+  $path = $_SERVER['PHP_SELF'];
+  $filePath = basename($path, '.php');
+
+
+  if (isset($_SESSION['userdata'])) : ?>
     <div class="container session">
 
       <?php
@@ -10,10 +17,6 @@
       $user_name = $user['name'];
       $user_subname = $user['subname'];
       $user_image = $user['user_image'];
-
-      // image
-      $path = $_SERVER['PHP_SELF'];
-      $filePath = basename($path, '.php');
 
       ?>
       <div class="user">
