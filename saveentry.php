@@ -40,7 +40,7 @@ if (isset($_POST)) {
         if ($stmt) {
             $_SESSION['success'] = 'La entrada se ha creado correctamente';
         } else {
-            $errors['db'] = 'Error al crear la entrada';
+            $_SESSION['entry_errors']['db'] = 'Error al crear la entrada';
         }
     }
 }
