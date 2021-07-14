@@ -1,13 +1,15 @@
 <?php
 require_once('includes/header.php');
 
-if (isset($_GET['id'])) {
+if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
   $category_id = (int) $_GET['id'];
 
   $category_name = getCategoryName($con, $category_id);
   if (!$category_name) {
     header('Location: index.php');
   }
+} else {
+  header('Location: index.php');
 }
 
 

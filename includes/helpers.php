@@ -54,7 +54,15 @@ function deleteSession($session)
 
 
 // ********************* BASE DE DATOS ********************* //
-
+function sanitizeNum($con, $num)
+{
+    $num = (int) mysqli_real_escape_string($con, sanitize($num));
+    $result = false;
+    if (is_int($num)) {
+       $result = true;
+    }
+    return $result;
+}
 // Devuelve las categorias de la base de datos
 function getCategories($con)
 {
@@ -83,7 +91,7 @@ function getCategoryName($con, int $id)
     return $result;
 }
 
-// Devuelve las 4 últimas entradas
+// Devuelve las 'n' últimas entradas
 // Parametrizar una función es añadirle parámetros para que realice otras acciones
 function getEntries($con, $limit = null, $category = null)
 {
@@ -93,7 +101,7 @@ function getEntries($con, $limit = null, $category = null)
             FROM entries 
                 INNER JOIN categories ON entries.category_id = categories.id ";
     if (isset($category)) {
-        $sql .= "HAVING entries.category_id = $category ";
+        $sql .= "WHERE entries.category_id = $category ";
     }
     $sql .= "ORDER BY entries.entry_date DESC ";
     if (isset($limit)) {
