@@ -18,3 +18,4 @@
 ### Mejoras
 
 - Crear usuarios administradores que controlen las categorias, pueden borrar usuarios.
+- Manejar permisos admin/user
