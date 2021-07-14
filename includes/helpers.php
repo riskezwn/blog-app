@@ -67,21 +67,39 @@ function getCategories($con)
     }
     return $result;
 }
+// Devuelve el nombre de la categoria a traves de su id
+function getCategoryName($con, int $id)
+{
+    $sql = "SELECT name
+            FROM categories
+            WHERE id = $id;";
+    $stmt = mysqli_query($con, $sql);
+
+    $result = false;
+    if (mysqli_num_rows($stmt) == 1) {
+        $result = mysqli_fetch_assoc($stmt);
+        $result = $result['name'];
+    }
+    return $result;
+}
 
 // Devuelve las 4 últimas entradas
 // Parametrizar una función es añadirle parámetros para que realice otras acciones
-function getEntries($con, $limit = null)
+function getEntries($con, $limit = null, $category = null)
 {
     $sql = "SELECT entries.*,
             UPPER(categories.name) AS category_name,
             DATE_FORMAT(entries.entry_date, '%d-%m-%Y') AS entry_date
             FROM entries 
-                INNER JOIN categories ON entries.category_id = categories.id 
-            ORDER BY entries.entry_date DESC ";
+                INNER JOIN categories ON entries.category_id = categories.id ";
+    if (isset($category)) {
+        $sql .= "HAVING entries.category_id = $category ";
+    }
+    $sql .= "ORDER BY entries.entry_date DESC ";
     if (isset($limit)) {
-
         $sql .= "LIMIT $limit;";
     }
+
     $stmt = mysqli_query($con, $sql);
     $result = false;
     if ($stmt && mysqli_num_rows($stmt) > 1) {
