@@ -290,14 +290,14 @@ form.create-category input:not(.btn) {
   font-size: 1.3em;
   margin-top: 15px;
   width: 60%;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   border-radius: 15px;
   border: none;
   box-shadow: 1px 1px 7px 2px #22222223;
   outline: none;
 }
 form.create-category input:not(.btn):focus {
-  box-shadow: 1px 1px 7px 2px var(--c-greenaqua);
+  box-shadow: 0px 0px 5px var(--c-greenaqua);
 }
 form.create-category .category-error {
   background-color: var(--c-pink);
@@ -314,4 +314,38 @@ form.create-category .category-success {
   opacity: 0.8;
   margin-bottom: 15px;
   color: #fff;
+}
+
+/**************** CREATE ENTRY **********/
+form.create-entry {
+  padding: 2em;
+}
+form.create-entry textarea {
+  margin: 5px 0;
+  border-radius: 10px;
+  padding: 1em;
+  font-family: var(--f-robotoslab);
+  font-size: 1em;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 1px 1px 7px 2px #22222223;
+}
+form.create-entry input,
+form.create-entry select {
+  margin: 5px 0;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  font-size: 1.1em;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 1px 1px 7px 2px #22222223;
+}
+form.create-entry textarea:focus,
+form.create-entry input:focus,
+form.create-entry select:focus {
+  box-shadow: 0px 0px 5px var(--c-greenaqua);
 }
