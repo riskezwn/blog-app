@@ -349,3 +349,17 @@ form.create-entry input:focus,
 form.create-entry select:focus {
   box-shadow: 0px 0px 5px var(--c-greenaqua);
 }
+
+/**************** PROFILE **************/
+
+.profile {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.profile img {
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
+}

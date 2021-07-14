@@ -24,7 +24,7 @@
         <img src="assets/images/user_images/<?= $user_image ?>" class="user-image" alt="user avatar">
       </div>
       <ul class="user-options">
-        <li class="option"><a href="index.php"><i class="fas fa-user-alt"></i> Mi perfil</a></li>
+        <li class="option"><a href="profile.php"><i class="fas fa-user-alt"></i> Mi perfil</a></li>
         <li class="option"><a href="create_entry.php"><i class="fas fa-pencil-alt"></i> Escribir entrada</a></li>
         <li class="option"><a href="create_category.php"><i class="fas fa-pencil-ruler"></i> Crear categoría</a></li>
         <li class="option"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
