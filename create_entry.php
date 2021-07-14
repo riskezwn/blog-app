@@ -9,6 +9,15 @@ require_once('includes/header.php');
     <hr class="main-hr" />
 
     <form class="create-entry" action="saveentry.php" method="post">
+      <?php 
+          if (isset($_SESSION['entry_errors'])) {
+            # code...
+            $errors = $_SESSION['entry_errors'];
+            foreach ($errors as $key => $value) {
+              echo checkEntryError($errors, $key);
+            } 
+          }
+      ?>
       <div class="form-group">
         <label for="title">Título</label>
         <input type="text" name="title" id="title">
@@ -33,6 +42,7 @@ require_once('includes/header.php');
       </div>
       <input type="submit" class="btn" value="Crear entrada">
     </form>
+    <?php deleteSession('entry_errors');?>
   </section>
   <?php
   require_once('includes/aside.php')

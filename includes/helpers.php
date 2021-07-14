@@ -21,7 +21,7 @@ function checkLoginError($errors)
 {
     $result = '';
     if (isset($errors)) {
-        $result = "<div class='error'><i class='fas fa-exclamation-circle'></i>$errors</div>";
+        $result = "<div class='error'><i class='fas fa-exclamation-circle'></i> $errors</div>";
     }
     return $result;
 }
@@ -29,9 +29,17 @@ function checkCreateCategoryError($status, $msg)
 {
     $result = '';
     if (isset($msg) && $status == 'error') {
-        $result = "<div class='category-error'><i class='fas fa-exclamation-circle'></i>$msg</div>";
+        $result = "<div class='category-error'><i class='fas fa-exclamation-circle'></i> $msg</div>";
     } elseif (isset($msg) && $status == 'success') {
-        $result = "<div class='category-success'><i class='fas fa-exclamation-circle'></i>$msg</div>";
+        $result = "<div class='category-success'><i class='fas fa-exclamation-circle'></i> $msg</div>";
+    }
+    return $result;
+}
+function checkEntryError($errors, $field)
+{
+    $result = '';
+    if (isset($errors[$field]) && !empty($field)) {
+        $result = "<div class='category-error'><i class='fas fa-exclamation-circle'></i> $errors[$field]</div>";
     }
     return $result;
 }
