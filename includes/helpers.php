@@ -69,14 +69,19 @@ function getCategories($con)
 }
 
 // Devuelve las 4 últimas entradas
-function getLastEntries($con)
+// Parametrizar una función es añadirle parámetros para que realice otras acciones
+function getEntries($con, $limit = null)
 {
     $sql = "SELECT entries.*,
             UPPER(categories.name) AS category_name,
             DATE_FORMAT(entries.entry_date, '%d-%m-%Y') AS entry_date
             FROM entries 
                 INNER JOIN categories ON entries.category_id = categories.id 
-            ORDER BY entries.entry_date DESC LIMIT 4;";
+            ORDER BY entries.entry_date DESC ";
+    if (isset($limit)) {
+
+        $sql .= "LIMIT $limit;";
+    }
     $stmt = mysqli_query($con, $sql);
     $result = false;
     if ($stmt && mysqli_num_rows($stmt) > 1) {
