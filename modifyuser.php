@@ -1,5 +1,6 @@
 <?php
 
+require_once('includes/redirect.php');
 
 if (isset($_POST)) {
     require_once('includes/connect.php');
