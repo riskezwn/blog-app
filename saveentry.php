@@ -31,17 +31,32 @@ if (isset($_POST)) {
     } else {
         $userdata = $_SESSION['userdata'];
         $user_id = $userdata['id'];
-
-        $sql = "INSERT INTO entries (title, description, category_id, user_id, entry_date)
-                VALUES ('$title', '$body', $category, $user_id, CURDATE());";
-
-        $stmt = mysqli_query($con, $sql);
-
-        if ($stmt) {
-            $_SESSION['success'] = 'La entrada se ha creado correctamente';
+        if (isset($_GET['edit']) && sanitizeNum($con, $_GET['edit'])) {
+            $entry_id = $_GET['edit'];
+            $sql = "UPDATE entries SET
+                    title = $title,
+                    description = $description,
+                    category_id = $category
+                    WHERE id = $id
+                    AND user_id = $user_id";
+            $stmt = mysqli_query($con, $sql);
         } else {
-            $_SESSION['entry_errors']['db'] = 'Error al crear la entrada';
+            $sql = "INSERT INTO entries (title, description, category_id, user_id, entry_date)
+            VALUES ('$title', '$body', $category, $user_id, CURDATE());";
+
+            $stmt = mysqli_query($con, $sql);
+
+            if ($stmt) {
+                $_SESSION['success'] = 'La entrada se ha creado correctamente';
+            } else {
+                $_SESSION['entry_errors']['db'] = 'Error al crear la entrada';
+            }
         }
     }
+    if (isset($_GET['edit'])) {
+        header('Location: edit_entry.php');
+    } else {
+        header('Location: create_entry.php');
+    }
 }
-header('Location: create_entry.php');
+header('Location: index.php');

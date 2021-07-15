@@ -18,7 +18,7 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
             if ($_SESSION['userdata']['id'] == $entry['user_id']) : 
     ?>
     <div class="buttons">
-      <a href="#" id="edit-button"><i class="fas fa-edit"></i></a>
+      <a href="edit_entry.php?id=<?= $entry_id ?>" id="edit-button"><i class="fas fa-edit"></i></a>
       <a href="delete_entry.php?id=<?= $entry_id ?>" id="delete-button"><i class="fas fa-trash"></i></a>
     </div>
     <?php   endif;

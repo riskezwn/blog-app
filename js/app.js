@@ -23,9 +23,9 @@ if (btnDeleteEntries) {
   btnDeleteEntries.addEventListener("click", confirmIt, false);
 }
 
-if (btnEditEntries) {
+/* if (btnEditEntries) {
   btnEditEntries.addEventListener("click", () => {
     console.log("hola");
     ENTRY.innerHTML = " <?php require_once('includes/edit_entry.php'); ?> ";
   });
-}
+} */
