@@ -8,10 +8,22 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
   header('Location: index.php');
 }
 
+
 ?>
 
 <main class="entry-container" id="entry">
-  <div class="entry">
+  <div class="entry" id="entry">
+
+    <?php if (isset($_SESSION['userdata'])) : 
+            if ($_SESSION['userdata']['id'] == $entry['user_id']) : 
+    ?>
+    <div class="buttons">
+      <a href="#" id="edit-button"><i class="fas fa-edit"></i></a>
+      <a href="delete_entry.php?id=<?= $entry_id ?>" id="delete-button"><i class="fas fa-trash"></i></a>
+    </div>
+    <?php   endif;
+          endif; 
+    ?>
     <h3 class="title"><?= $entry['title'] ?></h3>
     <div class="info">
       <a href="category.php?id=<?= $entry['category_id'] ?>"><div class="category"><?= $entry['category'] ?></div></a>

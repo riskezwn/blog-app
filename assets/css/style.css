@@ -407,3 +407,10 @@ form.create-entry select:focus {
   text-align: center;
   color: var(--c-darkgray);
 }
+.entry-container .entry .buttons {
+  text-align: end;
+}
+.entry-container .entry .buttons a {
+  color: var(--c-greenaqua);
+  margin-left: 10px;
+}
