@@ -59,7 +59,7 @@ function sanitizeNum($con, $num)
     $num = (int) mysqli_real_escape_string($con, sanitize($num));
     $result = false;
     if (is_int($num)) {
-       $result = true;
+        $result = true;
     }
     return $result;
 }
@@ -112,6 +112,26 @@ function getEntries($con, $limit = null, $category = null)
     $result = false;
     if ($stmt && mysqli_num_rows($stmt) >= 1) {
         $result = $stmt;
+    }
+    return $result;
+}
+// Devuelve el contenido de un registro de la tabla entries
+function getFullEntry($con, $id)
+{
+    $sql = "SELECT entries.*,
+    CONCAT(users.name, ' ', users.subname) AS author,
+    DATE_FORMAT(entries.entry_date, '%d-%m-%Y') AS entry_date,
+    UPPER(categories.name) AS category
+
+    FROM entries
+        INNER JOIN categories ON entries.category_id = categories.id
+        INNER JOIN users ON entries.user_id = users.id
+    HAVING entries.id = $id";
+
+    $stmt = mysqli_query($con, $sql);
+    $result = false;
+    if ($stmt && mysqli_num_rows($stmt) == 1) {
+        $result = mysqli_fetch_assoc($stmt);
     }
     return $result;
 }

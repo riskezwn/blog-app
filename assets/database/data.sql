@@ -92,3 +92,10 @@ VALUES (
         'El rey del deporte de motor. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo quidem blanditiis aspernatur, obcaecati quasi asperiores magni. Nobis excepturi quas atque minima cum! Nisi, mollitia molestias pariatur consequuntur aperiam voluptatum repellat.',
         CURDATE()
     );
+SELECT entries.*,
+    CONCAT(users.name, ' ', users.subname) AS Autor,
+    categories.name AS Categoria
+FROM entries
+    INNER JOIN categories ON entries.category_id = categories.id
+    INNER JOIN users ON entries.user_id = users.id
+HAVING entries.id = 3
