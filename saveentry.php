@@ -25,38 +25,58 @@ if (isset($_POST)) {
         $errors['body'] = 'El cuerpo de la entrada no puede estar vacío';
     }
 
+    $userdata = $_SESSION['userdata'];
+    $user_id = $userdata['id'];
     // Comprobar si hay errores 
     if (count($errors) > 0) {
         $_SESSION['entry_errors'] = $errors;
+        if (isset($_GET['edit'])) {
+            $entry_id = $_GET['edit'];
+            header("Location: edit_entry.php?id=$entry_id");
+        } else {
+            header("Location: create_entry.php");
+        }
     } else {
-        $userdata = $_SESSION['userdata'];
-        $user_id = $userdata['id'];
+
         if (isset($_GET['edit']) && sanitizeNum($con, $_GET['edit'])) {
             $entry_id = $_GET['edit'];
+            var_dump($entry_id);
             $sql = "UPDATE entries SET
-                    title = $title,
-                    description = $description,
+                    title = '$title',
+                    description = '$body',
                     category_id = $category
-                    WHERE id = $id
-                    AND user_id = $user_id";
-            $stmt = mysqli_query($con, $sql);
+                    WHERE id = $entry_id
+                    AND user_id = $user_id;";
+            $status = 'editado';
         } else {
             $sql = "INSERT INTO entries (title, description, category_id, user_id, entry_date)
             VALUES ('$title', '$body', $category, $user_id, CURDATE());";
+            $status = 'creado';
+        }
+        $stmt = mysqli_query($con, $sql);
 
-            $stmt = mysqli_query($con, $sql);
-
-            if ($stmt) {
-                $_SESSION['success'] = 'La entrada se ha creado correctamente';
+        if ($stmt) {
+            if (!isset($_GET['edit'])) {
+                $entry_id = mysqli_insert_id($con);
+            }
+            $_SESSION['success'] = 'La entrada se ha '.$status.' correctamente';
+            header("Location: entry.php?id=$entry_id");
+        } else {
+            $_SESSION['entry_errors']['db'] = 'Error al crear la entrada: ' . mysqli_error($con);
+            if (isset($_GET['edit'])) {
+                header("Location: edit_entry.php?id=$entry_id");
             } else {
-                $_SESSION['entry_errors']['db'] = 'Error al crear la entrada';
+                header("Location: create_entry.php");
             }
         }
     }
-    if (isset($_GET['edit'])) {
+    /* if (isset($_GET['edit'])) {
         header('Location: edit_entry.php');
     } else {
         header('Location: create_entry.php');
-    }
+    } */
+} else {
+    header('Location:index.php');
 }
-header('Location: index.php');
+
+

@@ -13,7 +13,10 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
 
 <main class="entry-container" id="entry">
   <div class="entry" id="entry">
-
+    <?php if (isset($_SESSION['success'])) {
+      echo checkCreateCategoryError('success', $_SESSION['success']);
+    }
+    ?>
     <?php if (isset($_SESSION['userdata'])) : 
             if ($_SESSION['userdata']['id'] == $entry['user_id']) : 
     ?>
@@ -40,5 +43,6 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
 </main>
 
 <?php
+deleteSession('success');
 require_once('includes/footer.php')
 ?>
