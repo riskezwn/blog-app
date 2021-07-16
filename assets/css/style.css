@@ -462,3 +462,11 @@ form.create-entry select:focus {
   color: var(--c-greenaqua);
   margin-left: 10px;
 }
+.entry-container .image {
+  display: block;
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}

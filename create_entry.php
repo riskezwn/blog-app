@@ -8,7 +8,7 @@ require_once('includes/header.php');
     <h3>Escribe una nueva entrada</h3>
     <hr class="main-hr" />
 
-    <form class="create-entry" action="saveentry.php" method="post">
+    <form class="create-entry" action="saveentry.php" method="post" enctype="multipart/form-data">
       <?php 
           if (isset($_SESSION['entry_errors'])) {
             # code...
@@ -21,6 +21,10 @@ require_once('includes/header.php');
       <div class="form-group">
         <label for="title">Título</label>
         <input type="text" name="title" id="title">
+      </div>
+      <div class="form-group">
+        <label for="image"><i class="fas fa-camera"></i></label>
+        <input type="file" name="image" id="image">
       </div>
       <div class="form-group">
         <label for="category">Categoría</label>

@@ -150,7 +150,7 @@ function searchEntries($con, $txt)
     WHERE title LIKE '%$txt%'
     OR description LIKE '%$txt%'
     ORDER BY entry_date DESC;";
-    
+
     $stmt = mysqli_query($con, $sql);
     $result = false;
     if ($stmt && mysqli_num_rows($stmt) >= 1) {
@@ -166,6 +166,40 @@ function setUserImage($con, $img, $user_id)
 
     $result = false;
     if ($stmt) {
+        $result = true;
+    }
+    return $result;
+}
+function uploadPhoto($img)
+{
+    if (isset($img) && $img != "") {
+        //Obtenemos algunos datos necesarios sobre el archivo
+        $type = $img['type'];
+        $temp = $img['tmp_name'];
+
+        $errors = [];
+        //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
+        if (!((strpos($type, "gif") || strpos($type, "jpeg") || strpos($type, "jpg") || strpos($type, "png")))) {
+            $errors[] = '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
+         - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+        } else {
+            $result = null;
+            $upload_dir = 'assets/images/';
+            $upload_file_name = 'entryimage' . time() . '.jpg';
+            //Si la imagen es correcta en tamaño y tipo
+            //Se intenta subir al servidor
+            if (move_uploaded_file($temp, $upload_dir . $upload_file_name)) {
+                //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
+                chmod($upload_dir . $upload_file_name, 0777); 
+                $result = $upload_file_name ;
+            } 
+        }
+    }
+    return $result;
+}
+function checkImage($type) {
+    $result = false;
+    if (strpos($type, "gif") || strpos($type, "jpeg") || strpos($type, "jpg") || strpos($type, "png")) {
         $result = true;
     }
     return $result;

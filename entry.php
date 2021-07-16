@@ -33,6 +33,9 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
       <div class="author"><?= $entry['author'] ?></div>
       <div class="date"><?= $entry['entry_date'] ?></div>
     </div>
+    <?php if ($entry['image'] != '') : ?> 
+    <img class="image" src="assets/images/<?= $entry['image']?>" alt="entry_image" >
+    <?php endif; ?>
     <p class="body">
       <?= $entry['description'] ?>
     </p>

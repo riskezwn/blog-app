@@ -7,8 +7,9 @@ if (isset($_POST)) {
 
     // Recoger y sanear los datos del formulario
     $title = !empty($_POST['title']) ? mysqli_real_escape_string($con, sanitize($_POST['title'])) : false;
-    $category = !empty($_POST['category']) ? (int) mysqli_real_escape_string($con, sanitize($_POST['category'])) : false;
+    $category = !empty($_POST['category']) ? (int) mysqli_real_escape_string($con, $_POST['category']) : false;
     $body = !empty($_POST['body']) ? mysqli_real_escape_string($con, sanitize($_POST['body'])) : false;
+    $img = $_FILES['image'];
 
     // Validar los datos
     $errors = [];
@@ -24,6 +25,11 @@ if (isset($_POST)) {
     if (!is_string($body) || empty($body)) {
         $errors['body'] = 'El cuerpo de la entrada no puede estar vacío';
     }
+    if ($img['name'] != '') {
+        if (!checkImage($img['type'])) {
+            $errors['img'] = 'El archivo debe ser una imagen';
+        }
+    }
 
     $userdata = $_SESSION['userdata'];
     $user_id = $userdata['id'];
@@ -37,6 +43,7 @@ if (isset($_POST)) {
             header("Location: create_entry.php");
         }
     } else {
+        $imageUploaded = uploadPhoto($img);
 
         if (isset($_GET['edit']) && sanitizeNum($con, $_GET['edit'])) {
             $entry_id = $_GET['edit'];
@@ -44,13 +51,14 @@ if (isset($_POST)) {
             $sql = "UPDATE entries SET
                     title = '$title',
                     description = '$body',
+                    image = '$imageUploaded',
                     category_id = $category
                     WHERE id = $entry_id
                     AND user_id = $user_id;";
             $status = 'editado';
         } else {
-            $sql = "INSERT INTO entries (title, description, category_id, user_id, entry_date)
-            VALUES ('$title', '$body', $category, $user_id, CURDATE());";
+            $sql = "INSERT INTO entries (title, description, image, category_id, user_id, entry_date)
+            VALUES ('$title', '$body', '$imageUploaded', $category, $user_id, CURDATE());";
             $status = 'creado';
         }
         $stmt = mysqli_query($con, $sql);
@@ -59,7 +67,7 @@ if (isset($_POST)) {
             if (!isset($_GET['edit'])) {
                 $entry_id = mysqli_insert_id($con);
             }
-            $_SESSION['success'] = 'La entrada se ha '.$status.' correctamente';
+            $_SESSION['success'] = 'La entrada se ha ' . $status . ' correctamente';
             header("Location: entry.php?id=$entry_id");
         } else {
             $_SESSION['entry_errors']['db'] = 'Error al crear la entrada: ' . mysqli_error($con);
@@ -78,5 +86,3 @@ if (isset($_POST)) {
 } else {
     header('Location:index.php');
 }
-
-
