@@ -17,6 +17,11 @@
 
 ### Mejoras
 
-- Crear usuarios administradores que controlen las categorias, pueden borrar usuarios.
+- Crear usuarios administradores que controlen las categorias
 - Manejar permisos admin/user
-- Controlar el número de categoria en crear entradas
+- Subir imagen a las entradas
+- Subir imagen de perfil
+- Controlar en registro que la cuenta de correo introducida por el nuevo usuario no exista
+- Permitir editar cuenta de correo y contrasela al usuario
+- Permitir editar cuenta de correo y contrasela al usuario controlando que la cuenta no exista o que la cuenta sea la que utiliza ese usuario
+- Mostrar entradas de un usuario
