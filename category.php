@@ -64,7 +64,7 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
         <a href="#" class="btn" id="getAllEntries">Ver todas las noticias <i class="fas fa-arrow-right"></i></a>
       </div>
     <?php else : ?>
-      <p>Nada que ver por aquí...</p>
+      <p class="empty-entries">Nada que ver por aquí...</p>
 
     <?php endif; ?>
   </section>

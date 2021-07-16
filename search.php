@@ -36,7 +36,7 @@ if (isset($_POST)) {
       endwhile;
     else :
       ?>
-      <p>Nada que ver por aquí...</p>
+      <p class="empty-entries">Nada que ver por aquí...</p>
     <?php
     endif;
     ?>

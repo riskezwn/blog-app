@@ -154,6 +154,9 @@ section .btn:hover {
 section .btn:hover i {
   margin-left: 6px;
 }
+section .empty-entries {
+  padding: 1.7em;
+}
 
 
 /* ASIDE */
