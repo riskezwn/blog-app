@@ -31,6 +31,11 @@ require_once('helpers.php');
       endif;
       ?>
 
-      <li class="li-nav"><a href="#">Contacto</a></li>
+      <li class="li-nav">
+        <form class="search-form" action="search.php" method="POST">
+          <input class="search" type="text" id="search" name="search">
+          <button><i class="fas fa-search"></i></button>
+        </form>
+      </li>
     </ul>
   </nav>

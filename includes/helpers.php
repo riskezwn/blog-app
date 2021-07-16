@@ -135,3 +135,26 @@ function getFullEntry($con, $id)
     }
     return $result;
 }
+
+// Devuelve entradas desde busqueda
+
+function searchEntries($con, $txt)
+{
+    $sql = "SELECT entries.*,
+    CONCAT(users.name, ' ', users.subname) AS author,
+    DATE_FORMAT(entries.entry_date, '%d-%m-%Y') AS entry_date,
+    UPPER(categories.name) AS category
+    FROM entries
+        INNER JOIN categories ON entries.category_id = categories.id
+        INNER JOIN users ON entries.user_id = users.id
+    WHERE title LIKE '%$txt%'
+    OR description LIKE '%$txt%'
+    ORDER BY entry_date DESC;";
+    
+    $stmt = mysqli_query($con, $sql);
+    $result = false;
+    if ($stmt && mysqli_num_rows($stmt) >= 1) {
+        $result = $stmt;
+    }
+    return $result;
+}
