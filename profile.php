@@ -23,6 +23,7 @@ $user_image = $user['user_image'];
       <form enctype="multipart/form-data" action="includes/upload.php" method="POST">
         <input type="file" name="profilephoto" id="profilephoto">
         <label for="profilephoto"><i class="fas fa-camera"></i></label>
+        <input type="hidden" name="userphoto">
         <input type="submit" value="SUbir">
       </form>
 

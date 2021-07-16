@@ -158,3 +158,15 @@ function searchEntries($con, $txt)
     }
     return $result;
 }
+
+function setUserImage($con, $img, $user_id)
+{
+    $sql = "UPDATE users SET user_image = '$img' WHERE id = $user_id";
+    $stmt = mysqli_query($con, $sql);
+
+    $result = false;
+    if ($stmt) {
+        $result = true;
+    }
+    return $result;
+}
