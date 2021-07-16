@@ -17,11 +17,11 @@
 
 ### Mejoras
 
-- Crear usuarios administradores que controlen las categorias
-- Manejar permisos admin/user
-- Subir imagen a las entradas
-- Subir imagen de perfil
-- Controlar en registro que la cuenta de correo introducida por el nuevo usuario no exista
-- Permitir editar cuenta de correo y contrasela al usuario
-- Permitir editar cuenta de correo y contrasela al usuario controlando que la cuenta no exista o que la cuenta sea la que utiliza ese usuario
-- Mostrar entradas de un usuario
+- [] Crear usuarios administradores que controlen las categorias
+- [] Manejar permisos admin/user
+- [x] Subir imagen a las entradas
+- [x] Subir imagen de perfil
+- [] Controlar en registro que la cuenta de correo introducida por el nuevo usuario no exista
+- [] Permitir editar cuenta de correo y contrasela al usuario
+- [] Permitir editar cuenta de correo y contrasela al usuario controlando que la cuenta no exista o que la cuenta sea la que utiliza ese usuario
+- [] Mostrar entradas de un usuario
