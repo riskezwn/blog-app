@@ -158,7 +158,6 @@ section .empty-entries {
   padding: 1.7em;
 }
 
-
 /* ASIDE */
 aside {
   display: flex;
@@ -371,7 +370,18 @@ form.create-entry select:focus {
 }
 
 /**************** PROFILE **************/
-
+.profile-container {
+  grid-template-columns: auto;
+  padding: 0;
+}
+.profile-container h2 {
+  background-color: var(--c-pink);
+  color: #fff;
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.75em;
+}
 .profile {
   display: flex;
   flex-flow: column nowrap;
@@ -383,7 +393,26 @@ form.create-entry select:focus {
   height: 4em;
   object-fit: cover;
 }
+.profile #profile-photo {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+#profile-photo + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: var(--c-greenaqua);
+  display: inline-block;
+  cursor: pointer;
+}
 
+#profile-photo:focus + label,
+#profile-photo + label:hover {
+  color: #11b8a5;
+}
 
 /******************** ENTRY *******************/
 
