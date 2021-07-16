@@ -18,7 +18,7 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
     <h3>Editar entrada</h3>
     <hr class="main-hr" />
 
-    <form class="create-entry" action="saveentry.php?edit=<?=$id?>" method="post">
+    <form class="create-entry" action="saveentry.php?edit=<?=$id?>" method="post" enctype="multipart/form-data">
       <?php
       if (isset($_SESSION['entry_errors'])) {
         # code...
@@ -31,6 +31,10 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
       <div class="form-group">
         <label for="title">Título</label>
         <input type="text" name="title" id="title" value="<?= $entry['title'] ?>">
+      </div>
+      <div class="form-group">
+        <label for="image"><i class="fas fa-camera"></i></label>
+        <input type="file" name="image" id="image" value="<?= $entry['image'] ?>">
       </div>
       <div class="form-group">
         <label for="category">Categoría</label>

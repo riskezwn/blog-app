@@ -50,9 +50,12 @@ if (isset($_POST)) {
             var_dump($entry_id);
             $sql = "UPDATE entries SET
                     title = '$title',
-                    description = '$body',
-                    image = '$imageUploaded',
-                    category_id = $category
+                    description = '$body',";
+            // Comprueba si se ha subido una imagen o no, para actualizar la base de datos
+            if ($imageUploaded != '') {
+                $sql .= "image = '$imageUploaded',";
+            }
+            $sql .= "category_id = $category
                     WHERE id = $entry_id
                     AND user_id = $user_id;";
             $status = 'editado';
