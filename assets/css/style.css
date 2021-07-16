@@ -393,7 +393,7 @@ form.create-entry select:focus {
   height: 4em;
   object-fit: cover;
 }
-.profile #profile-photo {
+/* .profile #profile-photo {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -412,7 +412,7 @@ form.create-entry select:focus {
 #profile-photo:focus + label,
 #profile-photo + label:hover {
   color: #11b8a5;
-}
+} */
 
 /******************** ENTRY *******************/
 

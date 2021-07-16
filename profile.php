@@ -19,10 +19,13 @@ $user_image = $user['user_image'];
       }
       ?>
       <img src="./assets/images/user_images/<?= $user_image ?>" alt="">
-      <form action="upload.php" method="post">
-        <input type="file" name="profile-photo" id="profile-photo">
-        <label for="file"><i class="fas fa-camera"></i></label>
+
+      <form enctype="multipart/form-data" action="includes/upload.php" method="POST">
+        <input type="file" name="profilephoto" id="profilephoto">
+        <label for="profilephoto"><i class="fas fa-camera"></i></label>
+        <input type="submit" value="SUbir">
       </form>
+
       <h4><?= $user_name ?> <?= $user_subname ?></h4>
       <form class="create-entry" action="modifyuser.php" method="post">
         <?php
