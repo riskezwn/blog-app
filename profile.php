@@ -21,10 +21,12 @@ $user_image = $user['user_image'];
       <img src="./assets/images/user_images/<?= $user_image ?>" alt="">
 
       <form enctype="multipart/form-data" action="includes/upload.php" method="POST">
-        <input type="file" name="profilephoto" id="profilephoto">
-        <label for="profilephoto"><i class="fas fa-camera"></i></label>
+        <div class="form-group">
+          <label for="profilephoto"><i class="fas fa-camera"></i></label>
+          <input type="file" name="profilephoto" id="profilephoto">
+        </div>
         <input type="hidden" name="userphoto">
-        <input type="submit" value="SUbir">
+        <input type="submit" value="Subir">
       </form>
 
       <h4><?= $user_name ?> <?= $user_subname ?></h4>

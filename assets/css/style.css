@@ -396,8 +396,8 @@ form.create-entry select:focus {
 }
 .profile img {
   border-radius: 50%;
-  width: 4em;
-  height: 4em;
+  width: 6em;
+  height: 6em;
   object-fit: cover;
 }
 /* .profile #profile-photo {
