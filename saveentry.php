@@ -8,7 +8,7 @@ if (isset($_POST)) {
     // Recoger y sanear los datos del formulario
     $title = !empty($_POST['title']) ? mysqli_real_escape_string($con, sanitize($_POST['title'])) : false;
     $category = !empty($_POST['category']) ? (int) mysqli_real_escape_string($con, $_POST['category']) : false;
-    $body = !empty($_POST['body']) ? mysqli_real_escape_string($con, sanitize($_POST['body'])) : false;
+    $body = !empty($_POST['body']) ? mysqli_real_escape_string($con, $_POST['body']) : false;
     $img = $_FILES['image'];
 
     // Validar los datos
