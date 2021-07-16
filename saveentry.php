@@ -47,17 +47,28 @@ if (isset($_POST)) {
 
         if (isset($_GET['edit']) && sanitizeNum($con, $_GET['edit'])) {
             $entry_id = $_GET['edit'];
-            var_dump($entry_id);
-            $sql = "UPDATE entries SET
-                    title = '$title',
-                    description = '$body',";
-            // Comprueba si se ha subido una imagen o no, para actualizar la base de datos
-            if ($imageUploaded != '') {
-                $sql .= "image = '$imageUploaded',";
+            if ($user_id != 10) {
+                $sql = "UPDATE entries SET
+                        title = '$title',
+                        description = '$body',";
+                // Comprueba si se ha subido una imagen o no, para actualizar la base de datos
+                if ($imageUploaded != '') {
+                    $sql .= "image = '$imageUploaded',";
+                }
+                $sql .= "category_id = $category
+                        WHERE id = $entry_id
+                        AND user_id = $user_id;";
+            } else {
+                $sql = "UPDATE entries SET
+                        title = '$title',
+                        description = '$body',";
+                // Comprueba si se ha subido una imagen o no, para actualizar la base de datos
+                if ($imageUploaded != '') {
+                    $sql .= "image = '$imageUploaded',";
+                }
+                $sql .= "category_id = $category
+                        WHERE id = $entry_id;";
             }
-            $sql .= "category_id = $category
-                    WHERE id = $entry_id
-                    AND user_id = $user_id;";
             $status = 'editado';
         } else {
             $sql = "INSERT INTO entries (title, description, image, category_id, user_id, entry_date)

@@ -18,7 +18,7 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
     }
     ?>
     <?php if (isset($_SESSION['userdata'])) : 
-            if ($_SESSION['userdata']['id'] == $entry['user_id']) : 
+            if ($_SESSION['userdata']['id'] == $entry['user_id'] || $_SESSION['userdata']['id'] == 10) : 
     ?>
     <div class="buttons">
       <a href="edit_entry.php?id=<?= $entry_id ?>" id="edit-button"><i class="fas fa-edit"></i></a>
