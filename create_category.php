@@ -1,7 +1,8 @@
 <?php
 require_once('includes/redirect.php');
 require_once('includes/header.php');
-?>
+
+if ($_SESSION['userdata']['id'] == 10) : ?>
 
 <main>
   <section class="news">
@@ -30,5 +31,9 @@ require_once('includes/header.php');
 </main>
 
 <?php
-require_once('includes/footer.php')
+require_once('includes/footer.php');
+
+else :
+  header('Location: index.php');
+endif;
 ?>

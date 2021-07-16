@@ -26,7 +26,9 @@
       <ul class="user-options">
         <li class="option"><a href="profile.php"><i class="fas fa-user-alt"></i> Mi perfil</a></li>
         <li class="option"><a href="create_entry.php"><i class="fas fa-pencil-alt"></i> Escribir entrada</a></li>
+        <?php if ($user['id'] == 10) : ?>
         <li class="option"><a href="create_category.php"><i class="fas fa-pencil-ruler"></i> Crear categoría</a></li>
+        <?php endif; ?>
         <li class="option"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
       </ul>
     </div>
