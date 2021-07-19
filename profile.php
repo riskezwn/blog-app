@@ -5,6 +5,7 @@ $user = $_SESSION['userdata'];
 
 $user_name = $user['name'];
 $user_subname = $user['subname'];
+$user_email = $user['email'];
 $user_image = $user['user_image'];
 ?>
 
@@ -47,6 +48,20 @@ $user_image = $user['user_image'];
         </div>
         <?php
         if (isset($_SESSION['errors'])) echo checkFormError($_SESSION['errors'], 'subname');
+        ?>
+        <label for="email">Email</label>
+        <div class="form-group">
+          <input type="email" name="email" id="email" placeholder="user@example.com" value="<?= $user_email ?>" />
+        </div>
+        <?php
+        if (isset($_SESSION['errors'])) echo checkFormError($_SESSION['errors'], 'email');
+        ?>
+        <label for="pass">Contraseña</label>
+        <div class="form-group">
+          <input type="password" name="pass" id="pass" placeholder="" />
+        </div>
+        <?php
+        if (isset($_SESSION['errors'])) echo checkFormError($_SESSION['errors'], 'pass');
         ?>
         <input type="submit" value="Actualizar" class="btn">
       </form>
