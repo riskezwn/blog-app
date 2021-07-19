@@ -21,7 +21,6 @@
 - [x] Manejar permisos admin/user
 - [x] Subir imagen a las entradas
 - [x] Subir imagen de perfil
-- [ ] Controlar en registro que la cuenta de correo introducida por el nuevo usuario no exista
-- [ ] Permitir editar cuenta de correo y contraseña al usuario
+- [x] Controlar en registro que la cuenta de correo introducida por el nuevo usuario no exista
 - [ ] Permitir editar cuenta de correo y contraseña al usuario controlando que la cuenta no exista o que la cuenta sea la que utiliza ese usuario
 - [x] Mostrar entradas de un usuario
