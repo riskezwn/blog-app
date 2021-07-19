@@ -90,10 +90,24 @@ function getCategoryName($con, int $id)
     }
     return $result;
 }
+function getAuthor($con, int $id)
+{
+    $sql = "SELECT CONCAT(name, ' ', subname) AS Author
+            FROM users
+            WHERE id = $id;";
+    $stmt = mysqli_query($con, $sql);
 
-// Devuelve las 'n' últimas entradas
+    $result = false;
+    if (mysqli_num_rows($stmt) == 1) {
+        $result = mysqli_fetch_assoc($stmt);
+        $result = $result['Author'];
+    }
+    return $result;
+}
+
+// Devuelve las 'n' últimas entradas. Se puede pasar por parametros si se quieren las entradas de sólamente una categoría o solo un usuario
 // Parametrizar una función es añadirle parámetros para que realice otras acciones
-function getEntries($con, $limit = null, $category = null)
+function getEntries($con, $limit = null, $category = null, $user_id = null)
 {
     $sql = "SELECT entries.*,
             UPPER(categories.name) AS category_name,
@@ -102,6 +116,9 @@ function getEntries($con, $limit = null, $category = null)
                 INNER JOIN categories ON entries.category_id = categories.id ";
     if (isset($category)) {
         $sql .= "WHERE entries.category_id = $category ";
+    }
+    if (isset($user_id)) {
+        $sql .= "WHERE entries.user_id = $user_id ";
     }
     $sql .= "ORDER BY entries.entry_date DESC ";
     if (isset($limit)) {

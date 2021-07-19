@@ -30,7 +30,7 @@ if (isset($_GET['id']) && sanitizeNum($con, $_GET['id'])) {
     <h3 class="title"><?= $entry['title'] ?></h3>
     <div class="info">
       <a href="category.php?id=<?= $entry['category_id'] ?>"><div class="category"><?= $entry['category'] ?></div></a>
-      <div class="author"><?= $entry['author'] ?></div>
+      <a href="user_entries.php?id=<?= $entry['user_id'] ?>"><div class="author"><?= $entry['author'] ?></div></a>
       <div class="date"><?= $entry['entry_date'] ?></div>
     </div>
     <?php if ($entry['image'] != '') : ?> 
