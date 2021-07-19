@@ -221,3 +221,16 @@ function checkImage($type) {
     }
     return $result;
 }
+function checkDBEmail($con, $email)
+{
+    $sql = "SELECT email
+            FROM users
+            WHERE email = $email";
+    $stmt = mysqli_query($con, $sql);
+
+    $result = false;
+    if ($stmt) {
+        $result = true;
+    }
+    return $result;  
+}

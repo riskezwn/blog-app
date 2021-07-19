@@ -23,8 +23,8 @@ if (isset($_POST)) {
         $errors['subname'] = 'Los apellidos no son válidos';
     }
     // Campo correo
-    if (!is_string($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'El email no es válido';
+    if (!is_string($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || !checkDBEmail($con, $email)) {
+        $errors['email'] = 'El email no es válido o ya existe';
     }
     // Campo contraseña
     if (!$pass || strlen($pass) < 8) {
