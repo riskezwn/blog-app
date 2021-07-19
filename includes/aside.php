@@ -5,6 +5,19 @@
   // image
   $path = $_SERVER['PHP_SELF'];
   $filePath = basename($path, '.php');
+  $imageAside = '';
+  switch ($filePath) {
+    case 'create_entry':
+    case 'edit_entry':
+      $imageAside = 'create_entry.svg';
+      break;
+    case 'create_category':
+      $imageAside = 'create_category.svg';
+      break;
+    default:
+      $imageAside = 'index.svg';
+      break;
+  }
 
 
   if (isset($_SESSION['userdata'])) : ?>
@@ -99,5 +112,5 @@
       ?>
     </div>
   <?php endif; ?>
-  <img src="assets/images/<?= $filePath ?>.svg" alt="newspaper" class="img" />
+  <img src="assets/images/<?= $imageAside ?>" alt="newspaper" class="img" />
 </aside>
