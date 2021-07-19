@@ -442,8 +442,9 @@ form.create-entry select:focus {
   justify-content: space-between;
   align-items: center;
 }
-.entry-container .entry .info a {
-  text-decoration: none;
+.entry-container .entry .info a, .entry-container .entry .info a:visited {
+  color: var(--c-darkgray);
+  text-decoration-color: rgba(0, 0, 0, 0.24);
 }
 .entry-container .entry .info .category {
   color: var(--c-greenaqua);
