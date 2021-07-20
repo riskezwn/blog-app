@@ -38,6 +38,9 @@ if (isset($_POST)) {
                 $error = 'Lo siento, las credenciales no coinciden';
                 if ($error != '') $_SESSION['log-errors'] = $error;
             }
+        } else {
+            $error = 'Lo siento, las credenciales no coinciden';
+            if ($error != '') $_SESSION['log-errors'] = $error;
         }
     }
 }
