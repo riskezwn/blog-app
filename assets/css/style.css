@@ -34,13 +34,22 @@ header h1 {
   padding: 0 1em;
   border: 8px solid #000;
 }
+header #menu-button {
+  color: var(--c-darkgray);
+  font-size: 1.7em;
+}
 
 nav .ul-nav {
+  width: 100%;
+  z-index: 2;
   list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  margin-left: 7em;
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
   justify-content: center;
+}
+nav .ul-nav.open {
+  display: flex;
 }
 nav .li-nav {
   margin-right: 1.5em;
@@ -56,7 +65,7 @@ nav .li-nav a:after {
   width: 0px;
   height: 2px;
   display: block;
-  background: black;
+  background: #000;
   transition: 300ms;
 }
 nav .li-nav a:hover:after {
@@ -73,12 +82,10 @@ nav .li-nav .search-form input {
   border-bottom: 2px solid #000;
   outline: none;
   font-size: 1.2em;
-  width: 20%;
   transition: all .5s;
 }
 nav .li-nav .search-form input:focus {
   border-bottom: 3px solid #000;
-  width: 80%;
 }
 nav .li-nav .search-form button {
   border: none;
@@ -91,10 +98,10 @@ main {
   background-color: #fff;
   color: var(--c-darkgray);
   display: grid;
-  margin: 1em 2em;
-  padding: 1.8em 0 1.8em 1.8em;
+  margin: 1em 1em;
+  padding: 1.2em;
   border-radius: 15px;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: auto;
   box-shadow: 2px 2px 15px 3px #22222238;
 }
 main h3 {
@@ -102,9 +109,6 @@ main h3 {
 }
 
 /* SECTION */
-section {
-  border-right: 1px solid var(--c-darkgray);
-}
 section .main-hr {
   background: var(--c-pink);
   border: none;
@@ -115,7 +119,7 @@ section article {
   cursor: pointer;
   transition: all 0.5s;
   padding: 1em;
-  margin-right: 5em;
+  
   margin-top: 0.5em;
 }
 section a {
@@ -167,7 +171,7 @@ section .empty-entries {
 
 /* ASIDE */
 aside {
-  display: flex;
+  display: block;
   flex-flow: column nowrap;
   justify-content: space-between;
   padding: 0 1.6em 1.6em 1.6em;
@@ -344,7 +348,7 @@ form.create-category input:not(.btn):focus {
 
 /**************** CREATE ENTRY **********/
 form.create-entry {
-  padding: 2em;
+  padding: 1em;
 }
 form.create-entry textarea {
   margin: 5px 0;
@@ -401,8 +405,9 @@ form.create-entry select:focus {
   object-fit: cover;
 }
 .profile form {
-  width: 50%;
+  width: 75%;
 }
+
 /* .profile #profile-photo {
   width: 0.1px;
   height: 0.1px;
@@ -429,17 +434,17 @@ form.create-entry select:focus {
 .entry-container {
   font-size: large;
   grid-template-columns: auto;
-  padding: 3em;
+  padding: 1.3em;
 }
 .entry-container .entry {
-  width: 65%;
+  font-size: 13px;
   margin: 0 auto;
 }
 .entry-container .entry .title {
   color: var(--c-pink);
 }
 .entry-container .entry .info {
-  margin: 1.5em;
+  
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -474,6 +479,7 @@ form.create-entry select:focus {
   margin-left: 10px;
 }
 .entry-container .image {
+  margin-top: 15px;
   display: block;
   width: 80%;
   height: 200px;

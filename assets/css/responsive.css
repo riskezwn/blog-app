@@ -1,0 +1,113 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .entry-container .entry {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .profile form {
+    width: 50%;
+  }
+  .entry-container .entry {
+    padding: 3em;
+    font-size: 15px;
+  }
+  .entry-container .entry .info {
+    margin: 1.5em; 
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  header #menu-button {
+      display: none;
+  }
+  nav .ul-nav {
+      display: flex;
+      flex-flow: row wrap;
+  }
+  main {
+    margin: 1em 2em;
+    grid-template-columns: 75% 25%;
+    padding: 1.8em 0 1.8em 1.8em;
+  }
+  aside {
+    display: flex;
+  }
+  section {
+    border-right: 1px solid var(--c-darkgray);
+  }
+  section article {
+    margin-right: 5em;
+  }
+  .entry-container .entry {
+    width: 65%;
+    font-size: 18px;
+  }
+  form.create-entry {
+    padding: 2em;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+
+/* 
+nav .ul-nav {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav .li-nav {
+  margin-right: 1.5em;
+}
+nav .li-nav a {
+  color: #000;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+nav .li-nav a:after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+nav .li-nav a:hover:after {
+  width: 100%;
+}
+nav .li-nav .search-form {
+  display: inline;
+}
+nav .li-nav .search-form input {
+  display: inline-block;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  font-size: 1.2em;
+  transition: all .5s;
+}
+nav .li-nav .search-form input:focus {
+  border-bottom: 3px solid #000;
+}
+nav .li-nav .search-form button {
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+} */

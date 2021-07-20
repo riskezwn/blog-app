@@ -10,6 +10,7 @@ require_once('helpers.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
   <script src="https://kit.fontawesome.com/790908a15c.js" crossorigin="anonymous"></script>
   <title>Blog</title>
 </head>
@@ -17,9 +18,10 @@ require_once('helpers.php');
 <body>
   <header>
     <h1>BLOG</h1>
+    <a href="javascript:void(0);" id="menu-button"><i class="fas fa-bars"></i></a>
   </header>
   <nav>
-    <ul class="ul-nav">
+    <ul class="ul-nav" id="menu">
       <li class="li-nav"><a href="index.php">Inicio</a></li>
 
       <?php if ($categories = getCategories($con)) :
