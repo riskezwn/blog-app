@@ -27,7 +27,7 @@ if (isset($_POST)) {
     }
     // Campo correo
     if (!is_string($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || ($user_email != $email && !checkDBEmail($con, $email)) ) {
-        $errors['email'] = 'El email no es válido';
+        $errors['email'] = 'El email no es válido o ya existe';
     }
     // Campo contraseña
     if (!empty($pass) && strlen($pass) < 8) {
@@ -45,6 +45,10 @@ if (isset($_POST)) {
                     subname = '$subname'";
         if ($user_email != $email) {
             $sql .= ", email = '$email'";
+        }
+        if (!empty($pass)) {
+            $secure_pass = password_hash($pass, PASSWORD_DEFAULT);
+            $sql .= ", pass = '$secure_pass'";
         }
         $sql .= "WHERE id = $user_id;";
         $stmt = mysqli_query($con, $sql);
