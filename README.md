@@ -1,26 +1,30 @@
-# Creación de aplicación web blog
+# Blog App
 
-## Pasos
+Demo:
 
-1. Crear la maqueta en fichero index.php con estilos en un fichero independiente
-2. Trocear el fichero index y guardar las distintas partes del código en la carpeta includes
-3. Crear el fichero conexion.php donde establezcamos la conexión y abrir la sesión
-4. Registro de usuarios
-5. Login de usuarios
-6. Mostrar categorias en menú y entradas en index
-7. Crear categorias
-8. Crear entradas
-9. Edición de datos del usuario
-10. Listado de entradas por categorias y vista de entrada
-11. Edición y borrado de entradas
-12. Incluir un buscador
+## Description
 
-### Mejoras
+It is a simple web application with a modern and attractive design. It has the basic functions of a blog:
 
-- [x] Crear usuarios administradores que controlen las categorias
-- [x] Manejar permisos admin/user
-- [x] Subir imagen a las entradas
-- [x] Subir imagen de perfil
-- [x] Controlar en registro que la cuenta de correo introducida por el nuevo usuario no exista
-- [ ] Permitir editar cuenta de correo y contraseña al usuario controlando que la cuenta no exista o que la cuenta sea la que utiliza ese usuario
-- [x] Mostrar entradas de un usuario
+- User registration and login
+- Modification of user profile
+- Show posts, sorted by category or author
+- Photo upload
+- Blog post search engine 
+- Creating and editing entries
+- Creating and editing post categories
+- Management of administrator and author permissions
+
+## Built with
+
+- Frontend: HTML5, CSS3 and native JavaScript
+- Backend: PHP
+- Database: MySQL
+
+## Screenshots
+
+## Author
+Enrique García
+
+- [Email](mailto:enriquegarciagasc?subject=Hi% "Hi!")
+- [Website](https://enriquegarcia.dev )
