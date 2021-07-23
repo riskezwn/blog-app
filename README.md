@@ -1,7 +1,7 @@
 # Blog App
 
 Demo: [HERE](http://blogapp.infinityfreeapp.com)
-[blogapp.png](https://postimg.cc/8sTjtY7H)
+[[blogapp.png](https://i.postimg.cc/XNCd7S3T/blogapp.png)](https://postimg.cc/8sTjtY7H)
 
 ## Description
 
@@ -23,7 +23,7 @@ It is a simple web application with a modern, attractive and responsive design. 
 - Database: MySQL
 
 ## Screenshots
-[3.png](https://postimg.cc/WtStK7rP)
+[![3.png](https://i.postimg.cc/dtcdhHVD/3.png)](https://postimg.cc/WtStK7rP)
 
 ## Author
 Enrique García
