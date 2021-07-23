@@ -1,7 +1,7 @@
 # Blog App
 
 Demo: [HERE](http://blogapp.infinityfreeapp.com)
-[[blogapp.png](https://i.postimg.cc/XNCd7S3T/blogapp.png)](https://postimg.cc/8sTjtY7H)
+[![blogapp.png](https://i.postimg.cc/XNCd7S3T/blogapp.png)](https://postimg.cc/8sTjtY7H)
 
 ## Description
 
