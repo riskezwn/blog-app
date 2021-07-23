@@ -1,7 +1,7 @@
 # Blog App
 
 Demo: [HERE](https://bit.ly/2UH6hXN)
-[![blogapp.png](https://i.postimg.cc/XNCd7S3T/blogapp.png)]
+![blogapp.png](https://i.postimg.cc/XNCd7S3T/blogapp.png)
 
 ## Description
 
@@ -23,7 +23,7 @@ It is a simple web application with a modern, attractive and responsive design. 
 - Database: MySQL
 
 ## Screenshots
-[![3.png](https://i.postimg.cc/dtcdhHVD/3.png)]
+![3.png](https://i.postimg.cc/dtcdhHVD/3.png)
 
 ## Author
 Enrique García
