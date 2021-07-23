@@ -1,10 +1,11 @@
 # Blog App
 
 Demo: [HERE](http://blogapp.infinityfreeapp.com)
+[blogapp.png](https://postimg.cc/8sTjtY7H)
 
 ## Description
 
-It is a simple web application with a modern and attractive design. It has the basic functions of a blog:
+It is a simple web application with a modern, attractive and responsive design. It has the basic functions of a blog:
 
 - User registration and login
 - Modification of user profile
@@ -22,6 +23,7 @@ It is a simple web application with a modern and attractive design. It has the b
 - Database: MySQL
 
 ## Screenshots
+[3.png](https://postimg.cc/WtStK7rP)
 
 ## Author
 Enrique García
