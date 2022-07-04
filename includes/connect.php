@@ -1,12 +1,17 @@
 <?php
 
 // Conexión a base de datos
-$server = 'localhost';
-$user = 'root';
-$pass = '';
-$db = 'blog';
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"],1);
 
-$con = mysqli_connect($server, $user, $pass, $db);
+$active_group = 'default';
+$query_builder = TRUE;
+
+$con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
 mysqli_query($con, "SET names 'utf8'");
 
 if (mysqli_connect_errno()) {
